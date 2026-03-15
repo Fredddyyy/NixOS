@@ -2,7 +2,7 @@
 let
   vars = import ./variables.nix;
 in
-{
+{ 
   imports = [
     ./hardware-configuration.nix
     ./host-packages.nix
@@ -45,8 +45,8 @@ in
     # ../../modules/programs/cli/fastfetch
     ../../modules/programs/cli/btop
     ../../modules/programs/media/discord
-    ../../modules/programs/media/spicetify
-    # ../../modules/programs/media/youtube-music
+    # ../../modules/programs/media/spicetify
+    ../../modules/programs/media/youtube-music
     # ../../modules/programs/media/thunderbird
     # ../../modules/programs/media/obs-studio
     ../../modules/programs/media/mpv
