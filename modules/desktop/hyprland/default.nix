@@ -582,23 +582,22 @@ in
               ",preferred,auto,1"
 
               # My Monitors (Fine to leave these since i used the serial numbers)
-              "desc:BNQ BenQ EW277HDR 99J01861SL0,preferred,-1920x0,1"
-              "desc:BNQ BenQ EL2870U PCK00489SL0,preferred,0x0,2"
-              "desc:BNQ BenQ xl2420t 99D06760SL0,preferred,1920x-420,1,transform,1" # 5 for fipped
+              "desc:Acer Technologies Acer VG240Y 0x9441D8DD,preferred,0x0,1"
+              "desc:Messeltronik Dresden GmbH MD20446 V105TX200416,preferred,-1600x200,1"
             ];
 
             workspace = [
               # Binds workspaces to my monitors (find desc with: hyprctl monitors)
-              "1, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0,default:true"
-              "2, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-              "3, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-              "4, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-              "5, persistent:true, monitor:desc:BNQ BenQ EW277HDR 99J01861SL0,default:true"
-              "6, persistent:true, monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
-              "7, persistent:true, monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
-              "8, persistent:true, monitor:desc:BNQ BenQ xl2420t 99D06760SL0,default:true"
-              "9, persistent:true, monitor:desc:BNQ BenQ xl2420t 99D06760SL0"
-              "10, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
+              "1,monitor:desc:Acer Technologies Acer VG240Y 0x9441D8DD,default:true"
+              "2,monitor:desc:Acer Technologies Acer VG240Y 0x9441D8DD"
+              "3,monitor:desc:Acer Technologies Acer VG240Y 0x9441D8DD"
+              "4,monitor:desc:Acer Technologies Acer VG240Y 0x9441D8DD"
+              "5,monitor:desc:Acer Technologies Acer VG240Y 0x9441D8DD"
+              "6,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416,default:true"
+              "7,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416"
+              "8,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416"
+              "9,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416"
+              "10,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416"
             ];
           };
         };

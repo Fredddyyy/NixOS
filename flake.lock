@@ -173,16 +173,16 @@
     "neovim": {
       "flake": false,
       "locked": {
-        "lastModified": 1756715888,
-        "narHash": "sha256-0o1h27/xj+9u/noN4lsmQVk+YYFFUmdfmjwkqdWM650=",
-        "owner": "Sly-Harvey",
-        "repo": "nvim",
-        "rev": "978d468def66f1626474cee1dbecfe463de82f3f",
+        "lastModified": 1770582704,
+        "narHash": "sha256-/IbFkXyNBKmd8JoQ/IsVilEt3S95KkjFhxYk2d0y6to=",
+        "owner": "Fredddyyy",
+        "repo": "nvim.config",
+        "rev": "5c7d4b2a24923cc356093d7c89119ea2963e62e7",
         "type": "github"
       },
       "original": {
-        "owner": "Sly-Harvey",
-        "repo": "nvim",
+        "owner": "Fredddyyy",
+        "repo": "nvim.config",
         "type": "github"
       }
     },

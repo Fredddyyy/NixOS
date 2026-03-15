@@ -124,6 +124,12 @@
       installation_mode = "force_installed";
       install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
     };
+    "zotero@chnm.gmu.edu" = {
+      private_browsing = true;
+      default_area = "navbar";
+      installation_mode = "force_installed";
+      install_url = "https://www.zotero.org/download/connector/dl?browser=firefox&version=5.0.195";
+    };
   };
   "3rdparty".Extensions = {
     "addon@darkreader.org" = {

@@ -14,6 +14,7 @@
         enable = true;
         policies = import ./policies.nix { inherit lib; };
         languagePacks = [
+          "de-DE"
           "en-GB"
           "en-US"
         ];

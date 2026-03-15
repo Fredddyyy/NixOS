@@ -35,7 +35,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim = {
-      url = "github:Sly-Harvey/nvim";
+      #url = "github:Sly-Harvey/nvim";
+      url = "github:Fredddyyy/nvim.config";
       flake = false;
     };
     plasma-manager = {
