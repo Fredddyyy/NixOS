@@ -583,7 +583,7 @@ in
 
               # My Monitors (Fine to leave these since i used the serial numbers)
               "desc:Acer Technologies Acer VG240Y 0x9441D8DD,preferred,0x0,1"
-              "desc:Messeltronik Dresden GmbH MD20446 V105TX200416,preferred,-1600x200,1"
+              "desc:AOC 2460G5 0x000007CB,preferred,-1920x0,1"
             ];
 
             workspace = [
@@ -593,11 +593,11 @@ in
               "3,monitor:desc:Acer Technologies Acer VG240Y 0x9441D8DD"
               "4,monitor:desc:Acer Technologies Acer VG240Y 0x9441D8DD"
               "5,monitor:desc:Acer Technologies Acer VG240Y 0x9441D8DD"
-              "6,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416,default:true"
-              "7,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416"
-              "8,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416"
-              "9,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416"
-              "10,monitor:desc:Messeltronik Dresden GmbH MD20446 V105TX200416"
+              "6,monitor:desc:AOC 2460G5 0x000007CB,default:true"
+              "7,monitor:desc:AOC 2460G5 0x000007CB"
+              "8,monitor:desc:AOC 2460G5 0x000007CB"
+              "9,monitor:desc:AOC 2460G5 0x000007CB"
+              "10,monitor:desc:AOC 2460G5 0x000007CB"
             ];
           };
         };
