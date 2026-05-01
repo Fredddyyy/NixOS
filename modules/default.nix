@@ -33,7 +33,7 @@ in
     ./programs/browser/${vars.browser} # Set browser defined in variables.nix
     ./programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
     ./programs/editor/${vars.editor} # Set editor defined in variables.nix
-    ./programs/cli/${vars.tuiFileManager} # Set file-manager defined in variables.nix
+    ./programs/file-manager/${vars.fileManager} # Set file-manager defined in variables.nix
     ./programs/cli/tmux
     ./programs/cli/direnv
     ./programs/cli/lazygit
@@ -47,7 +47,6 @@ in
     ./programs/misc/sioyek
     ./programs/media/mpv
     ./programs/misc/tlp
-    ./programs/misc/thunar
     ./programs/misc/lact # GPU fan, clock and power configuration
   ]
   ++ lib.optional (vars.games == true) ./core/games.nix;

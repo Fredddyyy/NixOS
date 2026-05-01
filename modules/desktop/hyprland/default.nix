@@ -8,10 +8,9 @@ let
   inherit (lib) getExe getExe';
   inherit (import ../../../hosts/${host}/variables.nix)
     bar
-    waybarTheme
     browser
     terminal
-    tuiFileManager
+    fileManager
     kbdLayout
     kbdVariant
     defaultWallpaper
@@ -22,6 +21,7 @@ let
   autoclicker = pkgs.callPackage ./scripts/autoclicker.nix { };
   batterynotify = pkgs.callPackage ./scripts/batterynotify.nix { };
   clipmanager = pkgs.callPackage ./scripts/clipmanager.nix { };
+  fileManagerScript = pkgs.callPackage ./scripts/file-manager.nix { inherit terminal; };
   gamemode = pkgs.callPackage ./scripts/gamemode.nix { };
   keyboardswitch = pkgs.callPackage ./scripts/keyboardswitch.nix { };
   keybinds-yad = pkgs.callPackage ./scripts/keybinds-yad.nix { };
@@ -36,22 +36,13 @@ in
 {
   imports = [
     ../../themes/Catppuccin # Catppuccin GTK and QT themes
+    ./programs/${bar}
     ./programs/wlogout
     ./programs/rofi
     ./programs/hypridle
     ./programs/hyprlock
   ]
-  ++ lib.optional (bar == "hyprpanel") ./programs/hyprpanel
-  ++ lib.optionals (bar == "noctalia") [
-    # ./programs/dunst
-    ./programs/swaync
-    ./programs/noctalia
-  ]
-  ++ lib.optionals (bar == "waybar") [
-    # ./programs/dunst
-    ./programs/swaync
-    ./programs/waybar/${waybarTheme}.nix
-  ];
+  ++ lib.optional (bar != "hyprpanel") ./programs/swaync;
 
   environment.systemPackages = with pkgs; [
     pavucontrol
@@ -109,7 +100,7 @@ in
         };
 
         # Set wallpaper
-        services.swww.enable = true;
+        services.awww.enable = true;
 
         #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
         wayland.windowManager.hyprland = {
@@ -127,7 +118,6 @@ in
             "$mainMod" = "SUPER";
             "$term" = "${getExe pkgs.${terminal}}";
             "$editor" = "code --disable-gpu";
-            "$fileManager" = "$term --class \"tuiFileManager\" -e ${tuiFileManager}";
             "$browser" = browser;
 
             env = [
@@ -191,7 +181,7 @@ in
               "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
               resize_on_border = true;
-              layout = "dwindle"; # dwindle or master
+              layout = "dwindle"; # dwindle, master, scrolling, monocle
               # allow_tearing = true; # Allow tearing for games (use immediate window rules for specific games or all titles)
             };
             decoration = {
@@ -301,40 +291,39 @@ in
               mfact = 0.5;
             };
             windowrule = [
-              "tile on, match:title (.*)(Godot)(.*)$"
-
-              "opacity 1.00 1.00, match:class ^(firefox|Brave-browser|floorp|zen|zen-beta)$"
+              "opacity 0.80 0.80, match:class ^([Ff]irefox)$"
+              "opacity 0.80 0.80, match:class ^([Zz]en(-beta|-browser)?)$"
+              "opacity 0.80 0.80, match:class ^([Ff]loorp)$"
+              "opacity 0.80 0.80, match:class ^([Bb]rave-browser(-beta|-dev|-unstable)?)$"
               "opacity 0.90 0.80, match:class ^(Emacs)$"
               "opacity 0.90 0.80, match:class ^(gcr-prompter)$"
               "opacity 0.90 0.80, match:title ^(Hyprland Polkit Agent)$"
               "opacity 0.90 0.80, match:class ^(obsidian)$"
               "opacity 0.90 0.80, match:class ^(proton.vpn.app.gtk)$"
               "opacity 0.90 0.80, match:class ^(heroic)$"
-              "opacity 0.90 0.80, match:class ^(Lutris|lutris|net.lutris.Lutris)$"
+              "opacity 0.90 0.80, match:class ^([Ll]utris|net.lutris.Lutris)$"
+              "opacity 0.90 0.80, match:class ^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$"
+              "opacity 0.90 0.80, match:class ^(com.github.rafostar.Clapper)$"
 
-              "opacity 0.80 0.70, match:class ^(kitty|alacritty|Alacritty|org.wezfurlong.wezterm)$"
+              "opacity 0.80 0.70, match:class ^(kitty|[Aa]lacritty|org.wezfurlong.wezterm)$"
               "opacity 0.80 0.70, match:class ^(nvim-wrapper)$"
               "opacity 0.80 0.70, match:class ^(gnome-disks)$"
-              "opacity 0.80 0.70, match:class ^(org.gnome.Nautilus|Thunar|thunar|pcmanfm)$"
+              "opacity 0.80 0.70, match:class ^(org.gnome.Nautilus|[Tt]hunar|pcmanfm)$"
               "opacity 0.80 0.70, match:class ^(thunar-volman-settings)$"
-              "opacity 0.80 0.70, match:class ^(org.gnome.FileRoller)$"
+              "opacity 0.80 0.70, match:class ^(file-roller|org.gnome.FileRoller)$"
               "opacity 0.80 0.70, match:class ^(io.github.ilya_zlobintsev.LACT)$"
-              "opacity 0.80 0.70, match:class ^(Steam|steam|steamwebhelper)$"
-              "opacity 0.80 0.70, match:class ^(Spotify|spotify|com.github.th_ch.youtube_music)$"
+              "opacity 0.80 0.70, match:class ^([Ss]team|steamwebhelper)$"
+              "opacity 0.80 0.70, match:class ^([Ss]potify|com.github.th_ch.youtube_music)$"
               "opacity 0.80 0.70, match:title ^(Kvantum Manager)$"
               "opacity 0.80 0.70, match:class ^(VSCodium|codium-url-handler)$"
               "opacity 0.80 0.70, match:class ^(code|code-url-handler)$"
-              "opacity 0.80 0.70, match:class ^(tuiFileManager)$"
+              "opacity 0.80 0.70, match:class ^(fileManager)$"
               "opacity 0.80 0.70, match:class ^(org.kde.dolphin)$"
               "opacity 0.80 0.70, match:class ^(org.kde.ark)$"
               "opacity 0.80 0.70, match:class ^(nwg-look)$"
               "opacity 0.80 0.70, match:class ^(qt5ct|qt6ct)$"
               "opacity 0.80 0.70, match:class ^(yad)$"
               "opacity 0.80 0.70, match:class ^(gjs)$"
-
-              "opacity 0.90 0.80, match:class ^(discord)$"
-              "opacity 0.90 0.80, match:class ^(WebCord)$"
-              "opacity 0.90 0.80, match:class ^(com.github.rafostar.Clapper)$"
               "opacity 0.80 0.70, match:class ^(com.github.tchx84.Flatseal)$"
               "opacity 0.80 0.70, match:class ^(hu.kramo.Cartridges)$"
               "opacity 0.80 0.70, match:class ^(com.obsproject.Studio)$"
@@ -343,17 +332,16 @@ in
               "opacity 0.80 0.70, match:class ^(net.davidotek.pupgui2)$"
               "opacity 0.80 0.70, match:class ^(Signal)$"
               "opacity 0.80 0.70, match:class ^(io.gitlab.theevilskeleton.Upscaler)$"
-
-              "opacity 0.80 0.70, match:class ^(pavucontrol)$"
-              "opacity 0.80 0.70, match:class ^(org.pulseaudio.pavucontrol)$"
-              "opacity 0.80 0.70, match:class ^(blueman-manager)$"
-              "opacity 0.80 0.70, match:class ^(.blueman-manager-wrapped)$"
+              "opacity 0.80 0.70, match:class ^(pavucontrol|org.pulseaudio.pavucontrol)$"
+              "opacity 0.80 0.70, match:class ^(blueman-manager|.blueman-manager-wrapped)$"
               "opacity 0.80 0.70, match:class ^(nm-applet)$"
               "opacity 0.80 0.70, match:class ^(nm-connection-editor)$"
               "opacity 0.80 0.70, match:class ^(org.kde.polkit-kde-authentication-agent-1)$"
+              "opacity 0.80 0.70, match:class ^(xdg-desktop-portal-gtk|xdg-desktop-portal-kde)$"
 
-              "float on, match:title ^(Picture-in-Picture)$, match:class ^(zen|zen-beta|floorp|firefox)$"
-              "pin on, match:title ^(Picture-in-Picture)$, match:class ^(zen|zen-beta|floorp|firefox)$"
+              # Float Picture-in-Picture window for firefox-based browsers
+              "float on, match:title ^(Picture-in-Picture)$, match:class ^([Zz]en(-beta|-browser)?|[Ff]loorp|[Ff]irefox)$"
+              "pin on, match:title ^(Picture-in-Picture)$, match:class ^([Zz]en(-beta|-browser)?|[Ff]loorp|[Ff]irefox)$"
 
               "content game, match:tag games"
               "tag +games, match:content 3"
@@ -361,6 +349,7 @@ in
               "tag +games, match:class ^(gamescope)$"
               "tag +games, match:class (Waydroid)"
               "tag +games, match:class (osu!)"
+              "tag +games, match:class ^(com.libretro.RetroArch|[Rr]etro[Aa]rch)$"
 
               "sync_fullscreen on, match:tag games"
               "fullscreen on, match:tag games"
@@ -368,6 +357,11 @@ in
               "no_shadow on, match:tag games"
               "no_blur on, match:tag games"
               "no_anim on, match:tag games"
+
+              # Godot
+              "tile on, match:initial_title ^(Godot)$, match:initial_class ^(Godot)$"
+              "float on, match:title ^((.*)(DEBUG)), match:class ^(Godot)$"
+              "float on, match:initial_title ^(.*)(DEBUG)(.*)$, match:class ^(Godot)$"
 
               "opacity 0.80 0.70, match:class ^(microfetch)$"
               "float on, match:class ^(microfetch)$"
@@ -420,7 +414,7 @@ in
               # "$mainMod ALT, mouse:276, exec, kill $(cat /tmp/auto-clicker.pid) 2>/dev/null || ${lib.getExe autoclicker} --cps 60"
 
               # Night Mode (lower value means warmer temp)
-              "$mainMod, F9, exec, ${getExe pkgs.hyprsunset} --temperature 3500" # good values: 3500, 3000, 2500
+              "$mainMod, F9, exec, ${getExe pkgs.hyprsunset} --temperature 2500" # good values: 3500, 3000, 2500
               "$mainMod, F10, exec, pkill hyprsunset"
 
               # Window/Session actions
@@ -432,14 +426,14 @@ in
               "ALT, return, fullscreen" # toggle the window on focus to fullscreen
               "$mainMod ALT, L, exec, hyprlock" # lock screen
               "$mainMod, backspace, exec, pkill -x wlogout || wlogout -b 4" # logout menu
-              "$CONTROL, ESCAPE, exec, pkill waybar || pkill hyprpanel || ${bar}" # toggle bar
+              "$CONTROL, ESCAPE, exec, pkill \"waybar|hyprpanel|noctalia-shell|caelestia-shell|.quickshell\" || ${bar}" # toggle bar
               "$mainMod CTRL, mouse_down, exec, ${getExe zoom} in" # zoom in
               "$mainMod CTRL, mouse_up, exec, ${getExe zoom} out" # zoom out
 
               # Applications/Programs
               "$mainMod, Return, exec, $term"
               "$mainMod, T, exec, $term"
-              "$mainMod, E, exec, $fileManager"
+              "$mainMod, E, exec, ${getExe fileManagerScript} ${fileManager}"
               "$mainMod, C, exec, $editor"
               "$mainMod, F, exec, $browser"
               "$mainMod SHIFT, S, exec, spotify"
@@ -508,6 +502,10 @@ in
               "$mainMod, l, movefocus, r"
               "$mainMod, k, movefocus, u"
               "$mainMod, j, movefocus, d"
+
+              # Switch scrolling columns
+              "$mainMod, period, layoutmsg, move +col"
+              "$mainMod, comma, layoutmsg, move -col"
 
               # Go to workspace 5, 6 and 7 with mouse side buttons
               "$mainMod, mouse:276, workspace, 5"

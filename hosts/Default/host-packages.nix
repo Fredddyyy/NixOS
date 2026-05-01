@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     obsidian
-    # ludusavi # For game saves
+    ludusavi # For game saves
     github-desktop
     pokego # Overlayed
     signal-desktop  #Signal Messanger
