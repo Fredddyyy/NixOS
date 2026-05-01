@@ -44,6 +44,7 @@ in
     # ./programs/media/youtube-music
     # ./programs/media/thunderbird
     # ./programs/media/obs-studio
+    ./programs/misc/sioyek
     ./programs/media/mpv
     ./programs/misc/tlp
     ./programs/misc/thunar
