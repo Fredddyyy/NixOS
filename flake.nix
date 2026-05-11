@@ -38,11 +38,11 @@
       url = "github:Sly-Harvey/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim = {
+    #neovim = {
       #url = "github:Sly-Harvey/nvim";
-      url = "github:Fredddyyy/nvim.config";
-      flake = false;
-    };
+      #url = "github:Fredddyyy/nvim.config";
+      #flake = false;
+    #};
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";

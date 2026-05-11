@@ -216,22 +216,6 @@
         "type": "github"
       }
     },
-    "neovim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1770582704,
-        "narHash": "sha256-/IbFkXyNBKmd8JoQ/IsVilEt3S95KkjFhxYk2d0y6to=",
-        "owner": "Fredddyyy",
-        "repo": "nvim.config",
-        "rev": "5c7d4b2a24923cc356093d7c89119ea2963e62e7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Fredddyyy",
-        "repo": "nvim.config",
-        "type": "github"
-      }
-    },
     "nix-doom-emacs-unstraightened": {
       "inputs": {
         "doomemacs": "doomemacs",
@@ -563,7 +547,6 @@
         "caelestia-shell": "caelestia-shell",
         "doom-config": "doom-config",
         "home-manager": "home-manager",
-        "neovim": "neovim",
         "nix-doom-emacs-unstraightened": "nix-doom-emacs-unstraightened",
         "nix-flatpak": "nix-flatpak",
         "nix-index-database": "nix-index-database",

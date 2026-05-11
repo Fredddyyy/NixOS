@@ -159,7 +159,7 @@ in
               "polkit-agent-helper-1"
             ];
             input = {
-              kb_layout = "${kbdLayout},ru";
+              kb_layout = "${kbdLayout},jp";
               kb_variant = "${kbdVariant},";
               repeat_delay = 275; # or 212
               repeat_rate = 35;

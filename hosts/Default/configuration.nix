@@ -53,6 +53,7 @@ in
     ../../modules/programs/misc/tlp
     ../../modules/programs/misc/lact # GPU fan, clock and power configuration
     ../../modules/programs/misc/sioyek
+    ../../modules/programs/misc/keyd
   ]
   ++ lib.optional (vars.games == true) ../../modules/core/games.nix;
 }
