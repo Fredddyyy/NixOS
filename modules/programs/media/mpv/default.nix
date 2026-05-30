@@ -9,6 +9,7 @@
           scripts = with pkgs.mpvScripts; [
             thumbnail
             mpris
+            mpvacious
           ];
           bindings = rec {
             MBTN_LEFT_DBL = "cycle fullscreen";
@@ -54,6 +55,14 @@
 
             PGUP = "add chapter 1";
             PGDWN = "add chapter -1";
+
+            "Ctrl+WHEEL_UP" = "add video-zoom 0.25";
+            "Ctrl+WHEEL_DOWN" = "add video-zoom -0.25";
+            "MBTN_MID" = "script-binding drag-to-pan";
+            "Shift+WHEEL_UP" = "add video-pan-y 0.05";
+            "Shift+WHEEL_DOWN" = "add video-pan-y -0.05";
+            "Alt+WHEEL_UP" = "add video-pan-x -0.05";
+            "Alt+WHEEL_DOWN" = "add video-pan-x 0.05";
 
             u = "revert-seek";
 
@@ -118,6 +127,7 @@
             input-default-bindings = false;
           };
         };
+        xdg.configFile."mpv/scripts/drag-to-pan.lua".source = ./drag-to-pan.lua;
       }
     )
   ];
