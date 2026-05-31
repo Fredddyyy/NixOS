@@ -6,9 +6,10 @@ hl.monitor({
 })
 hl.monitor({
 	output = "desc:Acer Technologies Acer VG240Y 0x9441D8DD",
-	mode = "preferred",
+	mode = "1920x1080@60", -- "preferred",
 	position = "-1920x0",
 	scale = 1,
+  vrr = 0,
 })
 hl.monitor({
 	output = "desc:AOC 2460G5 0x000007CB",
