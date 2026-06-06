@@ -90,6 +90,10 @@ in
     LC_TELEPHONE = "${locale}";
     LC_TIME = "${locale}";
   };
+  i18n.supportedLocales = [
+    "${locale}/UTF-8"
+    "ja_JP.UTF-8/UTF-8"
+  ];
   environment.variables = {
     templates = "${self}/dev-shells";
     NIXOS_OZONE_WL = "1";

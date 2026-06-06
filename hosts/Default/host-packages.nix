@@ -22,6 +22,7 @@
     ffmpeg
     tree-sitter
     keyd
+    xivlauncher
     godot # For game development
     github-desktop
     # pokego # Overlayed
