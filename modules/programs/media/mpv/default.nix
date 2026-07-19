@@ -109,6 +109,8 @@
             "CLOSE_WIN {encode}" = "quit 4";
             "Ctrl+w" = ''set hwdec "no"'';
             # T = "script-binding generate-thumbnails";
+            "." = "frame-step 1 seek";
+            "," = "frame-back-step";
           };
           config = {
             osc = "no";

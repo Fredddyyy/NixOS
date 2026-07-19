@@ -13,7 +13,7 @@
     foliate       #eBook reader
     blanket
     zotero
-    logseq
+    #logseq
     fluffychat
     keepassxc
     anki
@@ -25,6 +25,7 @@
     xivlauncher
     godot # For game development
     github-desktop
+    tome4
     # pokego # Overlayed
 
     # All-in-one front-end for emulators 

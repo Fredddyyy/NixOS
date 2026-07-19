@@ -137,6 +137,19 @@
             }
           ];
         }
+        {
+          name = "Path of Exile 2";
+          bookmarks = [
+            {
+              name = "Craft of Exile";
+              url = "https://www.craftofexile.com/?game=poe2";
+            }
+            {
+              name = "PoE2 Trade";
+              url = "https://www.pathofexile.com/trade2/search/poe2/";
+            }
+          ];
+        }
       ];
     }
   ];

@@ -43,12 +43,12 @@
 
       settings = {
         main = {
-          #"mouse1" = "mouse1";
-          # "mouse2" = "mouse2";
+          "mouse1" = "mouse1";
+           "mouse2" = "mouse2";
           #};
           #ffxiv = {
-          "mouse1" = "leftalt";
-          "mouse2" = "leftcontrol";
+          #"mouse1" = "leftalt";
+          #"mouse2" = "leftcontrol";
         };
       };
     };

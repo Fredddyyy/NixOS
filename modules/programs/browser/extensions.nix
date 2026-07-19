@@ -81,15 +81,20 @@
       installation_mode = "force_installed";
       install_url = "https://www.zotero.org/download/connector/dl?browser=firefox&version=5.0.195";
     };
-    /*"moz-addon-prod@7tv.app" = {
+    "seventv-next@7tv.app" = {
       private_browsing = true;
       installation_mode = "force_installed";
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/7tv-extension/latest.xpi";
-    };*/
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/7tv-new/latest.xpi";
+    };
     "{6b733b82-9261-47ee-a595-2dda294a4d08}" = {
       private_browsing = true;
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/yomitan/latest.xpi";
+    };
+    "keepassxc-browser@keepassxc.org" = {
+      private_browsing = false;
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi";
     };
   };
 
