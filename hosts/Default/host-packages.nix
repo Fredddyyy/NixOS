@@ -25,9 +25,12 @@
     xivlauncher
     godot # For game development
     github-desktop
-    tome4
+    #tome4
+    typst
     # pokego # Overlayed
-
+    nextcloud-client
+    flatpak
+    gcc
     # All-in-one front-end for emulators 
     (retroarch.withCores (cores: with cores; [
       # citra # Nintendo - 3DS

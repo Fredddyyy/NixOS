@@ -47,5 +47,11 @@
       mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
+
+
+    kernel.sysctl = {
+      "fs.inotify.max_user_instances" = 4096;
+      "fs.inotify.max_user_watches" = 1048576;
+    };
   };
 }

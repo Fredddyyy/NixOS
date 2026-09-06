@@ -22,7 +22,7 @@ in
     ./core/syncthing.nix
     ./core/system.nix
     ./core/users.nix
-    # ./core/flatpak.nix
+    ./core/flatpak.nix
     # ./core/virtualisation.nix
     # ./core/dlna.nix
 

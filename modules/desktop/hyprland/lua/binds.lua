@@ -172,3 +172,9 @@ for i = 1, 10 do
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 	hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
+
+
+-- Awakened PoE Trade Pass-Throughs
+--hl.bind("SHIFT + space", hl.dsp.pass({ window = "^(awakened-poe-trade)$" }))
+--hl.bind("CTRL + D", hl.dsp.pass({ window = "^(awakened-poe-trade)$" }))
+--hl.bind("CTRL + ALT + D", hl.dsp.pass({ window = "^(awakened-poe-trade)$" }))

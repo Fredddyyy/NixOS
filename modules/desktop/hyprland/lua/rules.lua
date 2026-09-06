@@ -28,6 +28,18 @@ hl.layer_rule({
 
 -- Window Rules
 
+-- Awakened PoE Trade
+hl.window_rule({
+	match = { class = "^(awakened-poe-trade)$" },
+	float = true,
+	size = "100% 100%",
+	center = true,
+	border_size = 0,
+	no_shadow = true,
+	no_blur = true,
+--	no_focus = true,
+})
+
 hl.window_rule({
 	match = { class = "^([Ff]irefox)$" },
 	opacity = "1.00 1.00",

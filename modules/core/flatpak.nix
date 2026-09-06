@@ -19,6 +19,7 @@
         #"de.schmidhuberj.tubefeeder"     # watch YT videos
 
         # Add other Flatpak IDs here, e.g., "org.mozilla.firefox"
+        "dev.ftb.ftb-app"
       ];
 
       # Optional: Automatically update Flatpaks when you run nixos-rebuild swit ch
